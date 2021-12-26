@@ -1,0 +1,28 @@
+baseURL = 'https://huberisation.eu/'
+languageCode = 'fr-FR'
+title = 'Huberisation'
+description = 'Analyses de la technique et de ses enjeux'
+theme = 'paperleaf'
+
+defaultContentLanguage = "fr"
+Paginate = 4
+enableRobotsTXT = true
+
+[params]
+  author = "Bastien Huber"
+  description = "Analyses de la technique et de ses enjeux"
+  recent_posts_number = 3
+  date_format = "2 January 2006"
+  custom_css = [""]
+
+[permalinks]
+  articles = '/:section/:slug/'
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.renderer]
+    unsafe = true
+    xhtml = true
+
+[minify]
+  minifyOutput = true

@@ -1,0 +1,8 @@
+{{ define "main" }}
+    <section class="article-list-container">
+    {{ range .Paginator.Pages }}
+        {{ partial "article-thumbnail.html" . }}
+    {{ end }}
+    </section>
+    {{- template "_internal/pagination.html" . -}}
+{{ end }}

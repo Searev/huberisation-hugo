@@ -1,0 +1,9 @@
+<section class="article-list-element">
+    <h3>
+        <a href="{{.RelPermalink}}">{{ .Title }}</a>
+    </h3>
+    <p>
+        {{ .Summary }}
+    </p>
+    <p class="italic">Publié le {{ .Date | time.Format ":date_full" }}</p>
+</section>

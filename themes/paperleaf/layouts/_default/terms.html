@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ $data := .Data }}
+  <section class="article-list-container">
+    {{ range $key, $value := .Data.Terms }}
+      <h2>
+        <a href="/{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
+          {{ humanize $key }}
+        </a>
+      </h2>
+      {{ $nbArticles := len $value.Pages }}
+      <ul>
+        {{ range $value.Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+       {{ end }}
+      </ul>
+      {{ end }}
+  </section>
+{{ end }}

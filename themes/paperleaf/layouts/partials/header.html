@@ -1,0 +1,16 @@
+<header id="blog-nav">
+    <div>
+        <a id="app-title" href="/">{{ .Site.Title }}</a>
+        {{ with .Site.Params.Description }}
+        <div>{{ . }}</div>
+        {{ end }}
+    </div>
+    <nav>
+        <a
+            class="nav-link"
+            href="/tags">Catégories</a>
+        <a
+            class="nav-link"
+            href="/a-propos">A Propos</a>
+    </nav>
+</header>

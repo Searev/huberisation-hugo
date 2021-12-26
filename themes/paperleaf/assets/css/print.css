@@ -1,0 +1,37 @@
+#blog-nav, nav {
+  display: none !important;
+}
+
+.container {
+  width: 90%;
+  max-width: 90vw;
+}
+
+h1, h2, h3, h4, h5, a, span, p {
+  font-family: athelas, 'Century Gothic', 'Garamond', 'Times New Roman', Times, serif !important;
+}
+
+h1, h2, h3, h4, h5, strong {
+  font-weight: bold;
+  color: rgb(66, 66, 66) !important;
+}
+
+h1 {
+  font-size: 15pt !important;
+}
+
+h2 {
+  font-size: 13pt !important;
+}
+
+h3, h4, h5 {
+  font-size: 11pt !important;
+}
+
+span, a, p, i {
+  color: rgb(117, 117, 117) !important;
+  font-weight: 300;
+  font-size: 11pt !important;
+  margin-bottom: 15pt !important;
+  line-height: 15pt !important;
+}

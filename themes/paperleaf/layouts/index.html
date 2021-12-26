@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="article-list-container">
+  {{ $mainSections := .Site.Params.mainSections | default (slice "articles") }}
+  {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+  {{ $nbArticlesSection := len $section }}
+  {{ if ge $nbArticlesSection 1 }}
+
+    {{ $nbRecentPosts := $.Param "recent_posts_number" | default 3}}
+    <section id="mb-2">
+      {{ $sectionName := index (.Site.Params.mainSections) 0 }}
+      <h1>{{ humanize $sectionName }} récents</h1>
+  
+      {{ range (first $nbRecentPosts $section) }}
+        {{ partial "article-thumbnail.html" . }}
+      {{ end }}
+    </section>
+
+    {{ if ge $nbArticlesSection (add $nbRecentPosts 1)}}
+    <section class="mb-2">
+      <h1>Autres articles</h1>
+      <div class="mb-2">
+        {{ range (first 4 (after $nbRecentPosts $section))}}
+        <h3>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </h3>
+        {{ end }}
+
+        {{ with .Site.GetPage "section" $sectionName }}
+        <a
+          class="button"
+          href="{{ .RelPermalink }}">
+          Voir tous les articles
+        </a>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+  {{else}}
+    <span>Vous n'avez publié aucun article pour le moment.</span>
+  {{end}}
+</div>
+{{ end }}

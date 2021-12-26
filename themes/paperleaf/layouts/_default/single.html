@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article>
+    {{ if .Params.Author }}
+    <header class="article-header">
+        <div>
+            {{ range .Params.Tags }}
+            <a
+                class="tag"
+                href="{{ "/tags/" }}{{ . | urlize }}">
+                {{ . }}
+            </a>
+            {{ end }}
+        </div>
+        <h1>{{ .Title }}</h1>
+        <span>Par {{ .Params.Author }} </span>
+        <p>{{ .Summary }}</p>
+    </header>
+    {{ end }}
+    <section class="container">
+        {{ .Content }}
+    </section>
+    {{ if .Date}}
+    <footer class="container">
+        <span>Publié le {{ .Date | time.Format ":date_full" }}</span>
+    </footer>
+    {{ end }}
+</article>
+{{ end }}
